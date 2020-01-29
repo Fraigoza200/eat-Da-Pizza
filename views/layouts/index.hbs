@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="row">
+    <form class="col s12">
+      <div class="row">
+        <div class="col s11 input-field">
+          <input type="text" class="validate" name="pizza" id="pizza">
+          <label for="pizza">Pizza</label>
+        </div>
+        <div class="col s1 input-field">
+          <button id="addPizza" class="btn-large btn-floating waves-effect waves-light green">
+            <i class="material-icons">
+              add
+            </i>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="row">
+    <div id="unEaten" class="col s4">
+      <h5 class="center-align">Un-Eaten Pizzas</h5>
+      {{#each pizzas}}
+      {{#unless eaten}}
+        <div class="row card-panel">
+          <p class="center-align"><b>{{name}}</b></p>
+          <p class="center-align">
+            <button data-pizza="{{id}}" class="btn-floating waves-effect waves-light blue eatPizza">
+              <i class="material-icons">local_dining</i>
+            </button>
+          </p>
+        </div>
+      {{/unless}}
+      {{/each}}
+    </div>
+    <div class="col s4"></div>
+    <div id="eaten" class="col s4">
+      <h5 class="center-align">Eaten Pizzas</h5>
+      {{#each pizzas}}
+      {{#if eaten}}
+        <div class="row card-panel">
+          <p class="center-align"><b>{{name}}</b></p>
+          <p class="center-align">
+            <button data-pizza="{{id}}" class="btn-floating waves-effect waves-light red removePizza">
+              <i class="material-icons">delete</i>
+            </button>
+          </p>
+        </div>
+      {{/if}}
+      {{/each}}
+    </div>
+  </div>
+</div>
+</div>
